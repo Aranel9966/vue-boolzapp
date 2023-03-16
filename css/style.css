@@ -21,7 +21,6 @@ body{
     justify-content: space-between;
     border-left: 1px solid rgba(211, 211, 211, 0.499);
     
-
 }
 
 .search input{
@@ -63,6 +62,7 @@ body{
     background-color: #8edafc;
     width: 100%;
 }
+
 i{
     color:#b1b0b0 ;
 }

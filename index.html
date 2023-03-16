@@ -52,12 +52,12 @@
                 <!-- lista delle chat  -->
                 <div class="list">
                     <!--nomi chat  -->
-                    <div class="chat-name">
+                    <div v-for="(contact,index) in contacts" class="chat-name">
                         <div class="d-flex justify-content-between p-2">
                             <div class="d-flex">
-                                <img class="rounded-circle me-3" height="40" src="img/avatar_1.jpg" alt="">
+                                <img class="rounded-circle me-3" height="40" :src="contact.avatar" alt="">
                                 <div class="d-flex flex-column">
-                                    <span>Michele</span>
+                                    <span>{{contact.name}} </span>
                                     <div class="font-smal">ultimo messaggio inviato</div>    
                                 </div> 
                             </div>
