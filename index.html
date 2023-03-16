@@ -5,17 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css  -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- vue  -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
-        
+        <div class=" d-flex ">
+            <!-- container di sinistra -->
+            <div class="lista-container">
+                <!-- utente -->
+                <div class="d-flex justify-content-between p-2">
+                    <span>
+                    <img class="rounded-circle" height="40" src="img/avatar_io.jpg" alt="">
+                        Sofia
+                    </span>
+                    <span >
+                        <i class="fa-solid fa-circle-notch p-1 font-smal"></i>
+                        <i class="fa-solid fa-message p-1 font-smal"></i>
+                        <i class="fa-solid fa-ellipsis-vertical p-1 font-smal"></i>
+                    </span>
+                </div>
+                <!-- barra di ricerca  -->
+                <div class="search p-2">
+                    <input type="text " placeholder="cerca o inizia una nuova chat">
+                </div>
 
+                <!-- lista delle chat  -->
+                <div class="list">
+                    <!--nomi chat  -->
+                    <div class="chat-name">
+                        <div class="d-flex justify-content-between p-2">
+                            <div class="d-flex">
+                                <img class="rounded-circle " height="40" src="img/avatar_1.jpg" alt="">
+                                <div class="d-flex flex-column">
+                                    <span>Michele</span>
+                                    <div class="font-smal">ultimo messaggio inviato</div>    
+                                </div> 
+                            </div>
+
+                            <div class="font-smal ">
+                                12:00
+                            </div>                       
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            <!-- container di destra -->
+            <div class="chat-container">
+                <!-- contatto della chat  -->
+                <div class="container-fluid d-flex p-2">
+                    <img src="img/avatar_1.jpg" width="40" height="40" class="d-inline-block align-text-top rounded-circle">
+                    <div class="text">
+                        <span>Michele</span>
+                        <div class="font-smal">ultimo accesso oggi alle 12:00</div>    
+                    </div>
+                </div>
+                <!-- display chat  -->
+                <div class="chat">
+                    
+                </div>
+                <!-- input della chat  -->
+                <div class="input-group p-2 bg-body-secondary">
+                    <i class="fa-regular fa-face-smile p-3"></i>
+                    <input type="text" class="form-control" placeholder="scrivi un messaggio" >
+                    <i class="fa-solid fa-microphone p-3"></i>
+                </div>
+                  
+            </div>
+            
+        </div>
 
     </div>
-
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- js  -->
     <script src="js/script.js"></script>
 </body>
 </html>
