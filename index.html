@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Boolzapp</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- font-awesome -->
@@ -22,28 +22,40 @@
             <div class="lista-container">
                 <!-- utente -->
                 <div class="d-flex justify-content-between p-2">
-                    <span>
-                    <img class="rounded-circle" height="40" src="img/avatar_io.jpg" alt="">
-                        Sofia
+                    <div>
+                    <img class="rounded-circle me-3" height="40" src="img/avatar_io.jpg" alt="">
+                        <span>Sofia</span> 
+                    </div>
+                    <span class="d-flex align-items-center">
+                        <i class="fa-solid fa-circle-notch p-1 "></i>
+                        <i class="fa-solid fa-message p-1 "></i>
+                        <i class="fa-solid fa-ellipsis-vertical p-1 "></i>
                     </span>
-                    <span >
-                        <i class="fa-solid fa-circle-notch p-1 font-smal"></i>
-                        <i class="fa-solid fa-message p-1 font-smal"></i>
-                        <i class="fa-solid fa-ellipsis-vertical p-1 font-smal"></i>
-                    </span>
+                </div>
+                <!-- notifiche -->
+                <div class="chat-name">
+                    <div class="d-flex justify-content-between " >
+                        <div class="d-flex bagraund-color align-items-center p-2">
+                            <img class="rounded-circle me-3" height="40" src="img/Screenshot 2023-03-16 164515.png" alt="">
+                            
+                            <div class="d-flex flex-column">
+                                <span>Ricevi notifiche di nuoxi messaggi</span>
+                                <a class="font-smal">attiva notifiche desktop</a>    
+                            </div> 
+                        </div>                    
+                    </div>
                 </div>
                 <!-- barra di ricerca  -->
                 <div class="search p-2">
                     <input type="text " placeholder="cerca o inizia una nuova chat">
                 </div>
-
                 <!-- lista delle chat  -->
                 <div class="list">
                     <!--nomi chat  -->
                     <div class="chat-name">
                         <div class="d-flex justify-content-between p-2">
                             <div class="d-flex">
-                                <img class="rounded-circle " height="40" src="img/avatar_1.jpg" alt="">
+                                <img class="rounded-circle me-3" height="40" src="img/avatar_1.jpg" alt="">
                                 <div class="d-flex flex-column">
                                     <span>Michele</span>
                                     <div class="font-smal">ultimo messaggio inviato</div>    
@@ -55,7 +67,6 @@
                             </div>                       
                         </div>
                     </div>
-
                 </div>
                 
             </div>
@@ -64,7 +75,7 @@
             <div class="chat-container">
                 <!-- contatto della chat  -->
                 <div class="container-fluid d-flex p-2">
-                    <img src="img/avatar_1.jpg" width="40" height="40" class="d-inline-block align-text-top rounded-circle">
+                    <img src="img/avatar_1.jpg" width="40" height="40" class="d-inline-block align-text-top rounded-circle me-3">
                     <div class="text">
                         <span>Michele</span>
                         <div class="font-smal">ultimo accesso oggi alle 12:00</div>    

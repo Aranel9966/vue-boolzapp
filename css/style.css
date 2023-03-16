@@ -30,9 +30,22 @@
 .chat{
     height: 100%;
     background-image: url('../img/mine.jpg');
+    overflow:scroll;
+
+}
+
+.list{
+    
+    height: calc(100vh - 100px);
+    overflow:scroll;
+
 }
 
 .font-smal{
     font-size: xx-small;
     color: rgb(161, 161, 161);
+}
+.bagraund-color{
+    background-color: #8edafc;
+    width: 100%;
 }
