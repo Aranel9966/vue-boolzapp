@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
-        <div class=" d-flex ">
+        <div class="principal-container d-flex ">
             <!-- container di sinistra -->
             <div class="lista-container">
                 <!-- utente -->
@@ -74,12 +74,19 @@
             <!-- container di destra -->
             <div class="chat-container">
                 <!-- contatto della chat  -->
-                <div class="container-fluid d-flex p-2">
-                    <img src="img/avatar_1.jpg" width="40" height="40" class="d-inline-block align-text-top rounded-circle me-3">
-                    <div class="text">
-                        <span>Michele</span>
-                        <div class="font-smal">ultimo accesso oggi alle 12:00</div>    
+                <div class="container-fluid d-flex justify-content-between p-2">
+                    <div class="d-flex">
+                        <img src="img/avatar_1.jpg" width="40" height="40" class=" rounded-circle me-3">
+                        <div class="text">
+                            <span>Michele</span>
+                            <div class="font-smal">ultimo accesso oggi alle 12:00</div>    
+                        </div>
                     </div>
+                    <span class="d-flex gap-3 align-items-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical p-1 "></i>
+                    </span>
                 </div>
                 <!-- display chat  -->
                 <div class="chat">
