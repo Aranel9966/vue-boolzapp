@@ -191,14 +191,28 @@ const { createApp } = Vue
         
         newChat:0,
         
+        sendMessage:{
+            date: 'ora',
+            message: '',
+            status: 'sent'
+        },
+        
       }
     },
     
     methods: {
         selectChat(i){
             this.newChat=i
-        }
+        },
         
+        keyEnter(){
+            this.contacts[this.newChat].messages.push( this.sendMessage)
+            this.sendMessage={
+                date: 'ora',
+                message: '',
+                status: 'sent'
+            }
+        }
     },
 
   }).mount('#app')

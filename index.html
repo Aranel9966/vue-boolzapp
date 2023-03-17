@@ -104,7 +104,7 @@
                 <!-- input della chat  -->
                 <div class="input-group p-2 bg-body-secondary">
                     <i class="fa-regular fa-face-smile p-3"></i>
-                    <input type="text" class="form-control" placeholder="scrivi un messaggio" >
+                    <input @keyup.enter='keyEnter' v-model="sendMessage.message" type="text" class="form-control" placeholder="scrivi un messaggio" >
                     <i class="fa-solid fa-microphone p-3"></i>
                 </div>
                   
