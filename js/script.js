@@ -190,11 +190,17 @@ const { createApp } = Vue
         ],
         
         newChat:0,
-        
+
         sendMessage:{
             date: 'ora',
             message: '',
             status: 'sent'
+        },
+
+        responseMessage:{
+            date: 'ora',
+            message: 'okay',
+            status: 'received'
         },
         
       }
@@ -211,8 +217,18 @@ const { createApp } = Vue
                 date: 'ora',
                 message: '',
                 status: 'sent'
-            }
-        }
+            },
+
+            this.response()     
+        },
+
+        response(){
+            setTimeout(() => {
+                this.contacts[this.newChat].messages.push( this.responseMessage)
+            }, 2000);
+
+        },
+        
     },
 
   }).mount('#app')
