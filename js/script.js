@@ -203,6 +203,7 @@ const { createApp } = Vue
             status: 'received'
         },
         
+        search:''
       }
     },
     
@@ -228,7 +229,22 @@ const { createApp } = Vue
             }, 2000);
 
         },
+
+        theSearch(){
+            this.contacts.name.filter(this.search)
+            console.log('ciao')
+        },
         
     },
+    
+    // metodo 2 con computed ad ogni rendering si eseguira la funzuone 
+    // computed: {
+    // funzione che se messa dentro il v-for al posto del'array restituisce l'array filtrato
+    //     filteredList() {
+    //         return this.contacts.filter(contact => {
+    //           return contact.name.toLowerCase().includes(this.search.toLowerCase())
+    //         })
+    //       }
+    // }
 
   }).mount('#app')

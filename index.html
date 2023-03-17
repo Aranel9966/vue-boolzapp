@@ -45,14 +45,16 @@
                         </div>                    
                     </div>
                 </div>
+
                 <!-- barra di ricerca  -->
                 <div class="search p-2">
-                    <input type="text " placeholder="cerca o inizia una nuova chat">
+                    <input v-model="search" type="text " placeholder="cerca o inizia una nuova chat">
                 </div>
+                
                 <!-- lista delle chat  -->
                 <div class="list">
                     <!--nomi chat  -->
-                    <div v-for="(contact,index) in contacts" class="chat-name">
+                    <div v-for="(contact,index) in contacts" v-show="contact.name.toLowerCase().includes(this.search.toLowerCase())" class="chat-name">
                         <div @click="selectChat(index)" class="d-flex justify-content-between p-2">
                             <div class="d-flex">
                                 <img class="rounded-circle me-3" height="40" :src="contact.avatar" alt="">
