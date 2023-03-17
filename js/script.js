@@ -197,13 +197,30 @@ const { createApp } = Vue
             status: 'sent'
         },
 
-        responseMessage:{
+        
+        responseMessage: [
+        {
             date: 'ora',
-            message: 'okay',
+            message:'okay',
             status: 'received'
         },
-        
-        search:''
+        {
+            date: 'ora',
+            message:'no',
+            status: 'received'
+        },
+        {
+            date: 'ora',
+            message:'va bene',
+            status: 'received'
+        },
+        {
+            date: 'ora',
+            message:'ciao',
+            status: 'received'
+        }
+        ],
+        search:'',
       }
     },
     
@@ -225,14 +242,13 @@ const { createApp } = Vue
 
         response(){
             setTimeout(() => {
-                this.contacts[this.newChat].messages.push( this.responseMessage)
+                this.contacts[this.newChat].messages.push( this.responseMessage[Math.floor((Math.random()* this.responseMessage.length-1))+1])
             }, 2000);
 
         },
 
         theSearch(){
             this.contacts.name.filter(this.search)
-            console.log('ciao')
         },
         
     },
