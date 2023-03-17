@@ -187,15 +187,17 @@ const { createApp } = Vue
                     }
                 ],
             }
-        ]
+        ],
         
-        
+        newChat:0,
         
       }
     },
     
     methods: {
-        
+        selectChat(i){
+            this.newChat=i
+        }
         
     },
 
