@@ -201,14 +201,6 @@ const { createApp } = Vue
             message: '',
             status: 'sent'
         },
-
-        
-        responseMessage: 
-        {
-            date: 'ora',
-            message:'okay',
-            status: 'received'
-        },
         
         arrayMessage:['ciao','come va','okay','va bene','si','no'],
 
@@ -233,14 +225,14 @@ const { createApp } = Vue
                     status: 'sent'
                 },
     
-                this.response()     
+                this.response(this.newChat)     
             }
         },
 
-        response(){
+        response(i){
             setTimeout(() => {
                 let numberMessage=Math.floor((Math.random()* this.arrayMessage.length-1))+1
-                this.contacts[this.newChat].messages.push({
+                this.contacts[i].messages.push({
                     date: newDate,
                     message:this.arrayMessage[numberMessage],
                     status: 'received'
