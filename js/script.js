@@ -222,14 +222,19 @@ const { createApp } = Vue
         },
         
         keyEnter(){
-            this.contacts[this.newChat].messages.push( this.sendMessage)
-            this.sendMessage={
-                date: newDate,            
-                message: '',
-                status: 'sent'
-            },
+            if(this.sendMessage.message=='' ){
+                return
+            }else{
 
-            this.response()     
+                this.contacts[this.newChat].messages.push( this.sendMessage)
+                this.sendMessage={
+                    date: newDate,            
+                    message: '',
+                    status: 'sent'
+                },
+    
+                this.response()     
+            }
         },
 
         response(){
@@ -242,6 +247,8 @@ const { createApp } = Vue
                 })
                 
             }, 2000);
+
+            
 
         },
         
