@@ -220,7 +220,7 @@ const { createApp } = Vue
         selectChat(i){
             this.newChat=i
         },
-        
+
         keyEnter(){
             if(this.sendMessage.message=='' ){
                 return
@@ -248,7 +248,7 @@ const { createApp } = Vue
                 
             }, 2000);
 
-            
+
 
         },
         

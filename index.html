@@ -115,7 +115,10 @@
                 <div class="input-group p-2 bg-body-secondary">
                     <i class="fa-regular fa-face-smile p-3"></i>
                     <input @keyup.enter='keyEnter' v-model="sendMessage.message" type="text" class="form-control" placeholder="scrivi un messaggio" >
-                    <i class="fa-solid fa-microphone p-3"></i>
+                    <div v-if="sendMessage.message=='' "> <i class="fa-solid fa-microphone p-3"></i> </div>
+                    <div v-else @click="keyEnter"> <i class="fa-solid fa-paper-plane p-3"></i></div>
+                        
+                    
                 </div>
                   
             </div>
