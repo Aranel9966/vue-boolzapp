@@ -19,6 +19,11 @@ Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permett
 
 */
 
+const today=new Date();
+const newDate = Intl.DateTimeFormat('it-IT',{
+    hour:'numeric',
+    minute:'numeric',
+    }).format(today);
 
 const { createApp } = Vue
 
@@ -188,11 +193,11 @@ const { createApp } = Vue
                 ],
             }
         ],
-        
+
         newChat:0,
 
         sendMessage:{
-            date: 'ora',
+            date:newDate,
             message: '',
             status: 'sent'
         },
@@ -219,7 +224,7 @@ const { createApp } = Vue
         keyEnter(){
             this.contacts[this.newChat].messages.push( this.sendMessage)
             this.sendMessage={
-                date: 'ora',
+                date: newDate,            
                 message: '',
                 status: 'sent'
             },
@@ -231,18 +236,13 @@ const { createApp } = Vue
             setTimeout(() => {
                 let numberMessage=Math.floor((Math.random()* this.arrayMessage.length-1))+1
                 this.contacts[this.newChat].messages.push({
-                    date: 'ora',
+                    date: newDate,
                     message:this.arrayMessage[numberMessage],
                     status: 'received'
                 })
                 
             }, 2000);
-            
-        
-        },
 
-        theSearch(){
-            this.contacts.name.filter(this.search)
         },
         
         infoMessage(index){
@@ -257,15 +257,12 @@ const { createApp } = Vue
         },
 
         deletMessage(index){
-            let info =this.contacts[this.newChat]
-
-            console.log(info)
-            console.log(index)
-            
-            
+            let info =this.contacts[this.newChat]  
            info.messages.splice(index,1)
         }
     },
+
+    
     
     // metodo 2 con computed ad ogni rendering si eseguira la funzuone 
     // computed: {
@@ -278,3 +275,7 @@ const { createApp } = Vue
     // }
 
   }).mount('#app')
+
+  
+  
+    
