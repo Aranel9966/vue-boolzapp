@@ -93,9 +93,17 @@
                 <!-- display chat  -->
                 <div class="chat">
 
-                    <div v-for="newMessage in contacts[newChat].messages" :class="newMessage.status" >
-                        <div class="message ">
+                    <div v-for="(newMessage,index ) in contacts[newChat].messages" :class="newMessage.status" >
+                        <div class="message d-flex justify-content-between">
                             {{newMessage.message}}
+                            <div class=" arrow-drop"  data-bs-toggle="dropdown">
+                                  <i class="fa-solid fa-chevron-down"></i> 
+                                  <ul class="dropdown-menu">
+                                    <li ><a @click="infoMessage(index)"  class="dropdown-item" href="#">info messaggio</a></li>
+                                    <li ><a @click="deletMessage(index)"  class="dropdown-item" href="#">elimina messaggio</a></li>
+                                  </ul>
+                            </div>
+                            
                             <div class="message-time">
                                 {{newMessage.date}}
                             </div>

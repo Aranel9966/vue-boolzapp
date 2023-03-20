@@ -45,8 +45,6 @@ body{
     background-image: url('../img/mine.jpg');
     overflow-y:scroll;
     padding: 10px;
-    
-
 }
 
 .list{   
@@ -69,17 +67,25 @@ i{
     color:#b1b0b0 ;
 }
 
-
-
 .message{
     background-color: white;
     position: relative;
     width: 200px;
-
     padding: 8px;
     padding-bottom: 18px;
     border-radius: 9px;
     margin: 10px;
+}
+
+.chat-name:hover,.arrow-drop:hover{
+    cursor: pointer;
+    
+}
+.arrow-drop{
+    display: none;
+}
+.message:hover .arrow-drop{
+    display: block;
 }
 
 .receved{

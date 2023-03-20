@@ -198,28 +198,15 @@ const { createApp } = Vue
         },
 
         
-        responseMessage: [
+        responseMessage: 
         {
             date: 'ora',
             message:'okay',
             status: 'received'
         },
-        {
-            date: 'ora',
-            message:'no',
-            status: 'received'
-        },
-        {
-            date: 'ora',
-            message:'va bene',
-            status: 'received'
-        },
-        {
-            date: 'ora',
-            message:'ciao',
-            status: 'received'
-        }
-        ],
+        
+        arrayMessage:['ciao','come va','okay','va bene','si','no'],
+
         search:'',
       }
     },
@@ -242,15 +229,42 @@ const { createApp } = Vue
 
         response(){
             setTimeout(() => {
-                this.contacts[this.newChat].messages.push( this.responseMessage[Math.floor((Math.random()* this.responseMessage.length-1))+1])
+                let numberMessage=Math.floor((Math.random()* this.arrayMessage.length-1))+1
+                this.contacts[this.newChat].messages.push({
+                    date: 'ora',
+                    message:this.arrayMessage[numberMessage],
+                    status: 'received'
+                })
+                
             }, 2000);
-
+            
+        
         },
 
         theSearch(){
             this.contacts.name.filter(this.search)
         },
         
+        infoMessage(index){
+            let info =this.contacts[this.newChat]
+            alert(
+               ` INFO MESSAGGIO: \n 
+               tipo:  ${info.messages[index].status} \n
+               messaggio: ${info.messages[index].message} \n
+               data/ora: ${info.messages[index].date}
+                `
+            )
+        },
+
+        deletMessage(index){
+            let info =this.contacts[this.newChat]
+
+            console.log(info)
+            console.log(index)
+            
+            
+           info.messages.splice(index,1)
+        }
     },
     
     // metodo 2 con computed ad ogni rendering si eseguira la funzuone 
