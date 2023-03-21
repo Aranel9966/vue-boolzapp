@@ -19,11 +19,8 @@ Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permett
 
 */
 
-const today=new Date();
-const newDate = Intl.DateTimeFormat('it-IT',{
-    hour:'numeric',
-    minute:'numeric',
-    }).format(today);
+// collegamento luxon per gestire data e ora 
+var DateTime = luxon.DateTime;
 
 const { createApp } = Vue
 
@@ -197,7 +194,7 @@ const { createApp } = Vue
         newChat:0,
 
         sendMessage:{
-            date:newDate,
+            date : DateTime.now().toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
             message: '',
             status: 'sent'
         },
@@ -205,14 +202,18 @@ const { createApp } = Vue
         arrayMessage:['ciao','come va','okay','va bene','si','no'],
 
         search:'',
+
+        staScrivendo:'',
+        
       }
     },
     
     methods: {
+        //funzione che permette di collegare l'indice delle chat 
         selectChat(i){
             this.newChat=i
         },
-
+        // funzione che permette di inviare il testo scritto 
         keyEnter(){
             if(this.sendMessage.message=='' ){
                 return
@@ -220,30 +221,34 @@ const { createApp } = Vue
 
                 this.contacts[this.newChat].messages.push( this.sendMessage)
                 this.sendMessage={
-                    date: newDate,            
+                    date: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),            
                     message: '',
                     status: 'sent'
                 },
     
-                this.response(this.newChat)     
+                this.response(this.newChat) 
+                
             }
         },
-
+        // funzione che restituisce un messaggio di risposta 
         response(i){
+            this.staScrivendo='sta scrivendo...'
             setTimeout(() => {
                 let numberMessage=Math.floor((Math.random()* this.arrayMessage.length-1))+1
                 this.contacts[i].messages.push({
-                    date: newDate,
+                    date: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
                     message:this.arrayMessage[numberMessage],
                     status: 'received'
                 })
+                this.staScrivendo='online'
+                setTimeout(() => {
+                    this.staScrivendo= ''
+                },4000)
                 
             }, 2000);
 
-
-
         },
-        
+        //funzione che permette di visualizare i dati del messaggio
         infoMessage(index){
             let info =this.contacts[this.newChat]
             alert(
@@ -254,15 +259,19 @@ const { createApp } = Vue
                 `
             )
         },
-
+        //funzione che permette di eliminare i messaggi 
         deletMessage(index){
             let info =this.contacts[this.newChat]  
            info.messages.splice(index,1)
+        },
+        //funzione che permette di eliminare tutti i messaggi 
+        removeChat(i){
+            
+            console.log('elimina')
+            this.contacts[this.newChat].messages.splice(i, 100);
         }
     },
 
-    
-    
     // metodo 2 con computed ad ogni rendering si eseguira la funzuone 
     // computed: {
     // funzione che se messa dentro il v-for al posto del'array restituisce l'array filtrato

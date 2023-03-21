@@ -16,7 +16,7 @@
     <!-- vue  -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">
+    <div id="app" >
         <div class="principal-container d-flex ">
             <!-- container di sinistra -->
             <div class="lista-container">
@@ -45,47 +45,46 @@
                         </div>                    
                     </div>
                 </div>
-
                 <!-- barra di ricerca  -->
                 <div class="search p-2 d-flex ">
                     <i class="fa-solid fa-magnifying-glass p-2"></i>
                     <input v-model="search" type="text " placeholder=" cerca o inizia una nuova chat" class="rounded-pill border border-1 p-1">
-                </div>
-                
+                </div>               
                 <!-- lista delle chat  -->
                 <div class="list">
                     <!--nomi chat  -->
-                    <div v-for="(contact,index) in contacts" v-show="contact.name.toLowerCase().includes(this.search.toLowerCase())" class="chat-name">
+                    <div  v-for="(contact,index) in contacts" v-show="contact.name.toLowerCase().includes(this.search.toLowerCase())" class="chat-name">
                         <div @click="selectChat(index)" class="d-flex justify-content-between p-2">
-                            <div class="d-flex">
+                            <div class="d-flex ">
                                 <img class="rounded-circle me-3" height="40" :src="contact.avatar" alt="">
-                                <div class="d-flex flex-column">
+                                <div  class="d-flex flex-column">
                                     <span>{{contact.name}} </span>
-                                    <div class="font-smal">{{contact.messages.slice(-1).pop().message}}</div>    
+                                    <div v-if="contacts[index].messages.length > 0" class="font-smal">{{contact.messages.slice(-1).pop().message}}</div>    
                                 </div> 
                             </div>
-
-                            <div class="font-smal ">
-                                {{contact.messages.slice(-1).pop().date}}
+                            <div class="font-smal " >
+                               <p v-if="contacts[index].messages.length > 0"> {{contact.messages.slice(-1).pop().date}}</p>
                             </div>                       
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
-            
             <!-- container di destra -->
             <div class="chat-container">
                 <!-- contatto della chat  -->
                 <div class="container-fluid d-flex justify-content-between p-2">
-                    <div class="d-flex">
+                    <div class="d-flex" >
                         <img :src="contacts[newChat].avatar" width="40" height="40" class=" rounded-circle me-3">
                         <div class="text">
                             <span>{{contacts[newChat].name}}</span>
-                            <div class="font-smal">ultimo accesso: {{contacts[newChat].messages.slice(-1).pop().date}}</div>    
+                            <div v-if="contacts[newChat].messages.length > 0">
+                                <div v-if="staScrivendo==''" class="font-smal">ultimo accesso: {{contacts[newChat].messages.slice(-1).pop().date}}</div>    
+                            <div v-else class="font-smal">{{staScrivendo}}</div>
+                            </div>
                         </div>
                     </div>
                     <span class="d-flex gap-3 align-items-center">
+                        <i @click="removeChat(contacts[newChat].messages)" class="fa-solid fa-comment-slash"></i>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical p-1 "></i>
@@ -93,9 +92,8 @@
                 </div>
                 <!-- display chat  -->
                 <div class="chat">
-
-                    <div v-for="(newMessage,index ) in contacts[newChat].messages" :class="newMessage.status" >
-                        <div class="message d-flex justify-content-between">
+                    <div v-if="contacts[newChat].messages.length > 0" v-for="(newMessage,index ) in contacts[newChat].messages"  :class="newMessage.status" >
+                        <div  class="message d-flex justify-content-between">
                             {{newMessage.message}}
                             <div class=" arrow-drop"  data-bs-toggle="dropdown">
                                   <i class="fa-solid fa-chevron-down"></i> 
@@ -103,14 +101,12 @@
                                     <li ><a @click="infoMessage(index)"  class="dropdown-item" href="#">info messaggio</a></li>
                                     <li ><a @click="deletMessage(index)"  class="dropdown-item" href="#">elimina messaggio</a></li>
                                   </ul>
-                            </div>
-                            
-                            <div class="message-time">
+                            </div>                            
+                            <div class="message-time" v-if="contacts[newChat].messages.length > 0">
                                 {{newMessage.date}}
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- input della chat  -->
                 <div class="input-group p-2 bg-body-secondary">
@@ -118,14 +114,12 @@
                     <input @keyup.enter='keyEnter' v-model="sendMessage.message" type="text" class="form-control rounded-pill" placeholder="scrivi un messaggio" >
                     <div v-if="sendMessage.message=='' "> <i class="fa-solid fa-microphone p-3"></i> </div>
                     <div v-else @click="keyEnter"> <i class="fa-solid fa-paper-plane p-3"></i></div>
-
-                </div>
-                  
-            </div>
-            
+                </div>                 
+            </div>           
         </div>
-
     </div>
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- js  -->

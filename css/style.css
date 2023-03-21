@@ -15,7 +15,6 @@ body{
 
 .chat-container{
     width: 100%;
-    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,7 +47,7 @@ body{
 }
 
 .list{   
-    height: calc(100% - 158px);
+    height: calc(100% - 164px);
     overflow-y:scroll;
 
 }
@@ -81,9 +80,11 @@ i{
     cursor: pointer;
     
 }
+
 .arrow-drop{
     display: none;
 }
+
 .message:hover .arrow-drop{
     display: block;
 }
@@ -112,3 +113,4 @@ i{
     background-color: #d7f9bc;
 
 }
+
